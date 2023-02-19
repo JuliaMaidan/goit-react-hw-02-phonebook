@@ -1,0 +1,16 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.label {
+    opacity: 60%;
+    margin-bottom: 10px;
+}
+
+.filter {
+    border: 1px solid rgb(59, 6, 6);
+    padding: 5px 10px;
+    width: 250px;
+}
