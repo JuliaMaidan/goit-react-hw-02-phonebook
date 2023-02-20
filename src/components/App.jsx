@@ -5,6 +5,8 @@ import { nanoid } from 'nanoid'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import styles from './App.module.scss';
 
+import PropTypes from 'prop-types';
+
 export class App extends Component {
 
   state = {
@@ -85,3 +87,12 @@ export class App extends Component {
   );
   }
 };
+
+App.propTypes = {
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })).isRequired,
+    filter: PropTypes.string.isRequired,
+  }
