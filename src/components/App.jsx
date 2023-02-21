@@ -3,9 +3,8 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { nanoid } from 'nanoid'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Filter } from './Filter/Filter';
 import styles from './App.module.scss';
-
-import PropTypes from 'prop-types';
 
 export class App extends Component {
 
@@ -16,7 +15,7 @@ export class App extends Component {
       {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
-    filter: ''
+    filter: '',
   } 
 
   onAddContact = ({ name, number }) => {
@@ -80,19 +79,9 @@ export class App extends Component {
         <h2>Phonebook</h2>
         <ContactForm onSubmit={this.onAddContact} />
         <h2>Contacts</h2>
-        <label className={styles.label}>Find contacts by name or number</label>
-        <input className={styles.filter} name="filter" onChange={this.handleChange} type="text" />
+        <Filter onChange={this.handleChange}/>
         <ContactsList contacts={contacts} onDelete={this.onDelete} />
       </div>
   );
   }
 };
-
-App.propTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })).isRequired,
-    filter: PropTypes.string.isRequired,
-  }
