@@ -79,7 +79,7 @@ export class App extends Component {
         <h2>Phonebook</h2>
         <ContactForm onSubmit={this.onAddContact} />
         <h2>Contacts</h2>
-        <Filter onChange={this.handleChange}/>
+        <Filter name='filter' onChange={this.handleChange}/>
         <ContactsList contacts={contacts} onDelete={this.onDelete} />
       </div>
   );
